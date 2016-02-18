@@ -18,9 +18,8 @@ var HOST_PORT = '192.168.2.253:443';
 
 Net.createServer(function (clientConn) {
     var proc = Spawn('openssl', ['s_client', '-quiet', '-connect', HOST_PORT]);
-    proc.stdout.on('data', function (data) { clientConn.write(data); });
-    clientConn.on('data', function (data) { proc.stdin.write(data); });
-    proc.stderr.on('data', function (data) { process.stdout.write(data); });
+    proc.stdout.pipe(clientConn);
+    clientConn.pipe(proc.stdin);
+    proc.stderr.pipe(process.stdout);
     clientConn.on('close', function () { proc.kill(); });
-    proc.stdout.on('close', function () { clientConn.end(); });
 }).listen(9000);
