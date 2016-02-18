@@ -1,0 +1,15 @@
+{
+  "name": "badssl",
+  "version": "0.0.0",
+  "description": "Connect to broken SSL even if your browser doesn't want to",
+  "main": "proxy.js",
+  "license": "GPLv3",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "jshint": "~2.9.1"
+  },
+  "scripts": {
+      "lint": "jshint --verbose --config .jshintrc --exclude-path .jshintignore ."
+  }
+}
