@@ -4,12 +4,17 @@
   "description": "Connect to broken SSL even if your browser doesn't want to",
   "main": "proxy.js",
   "license": "GPLv3",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "cz-conventional-changelog": "^1.1.5",
     "jshint": "~2.9.1"
   },
   "scripts": {
-      "lint": "jshint --verbose --config .jshintrc --exclude-path .jshintignore ."
+    "lint": "jshint --verbose --config .jshintrc --exclude-path .jshintignore ."
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
